@@ -47,9 +47,10 @@ retriever = MultiQueryRetriever.from_llm(
 template = """Answer the question based ONLY on the following context:
 {context}
 Question: {question}
-if you do not know the answer just tell to contact with the bank's helpline number
-which is 16234
+If you do not know the answer, DO NOT GUESS. Instead, respond with:
+"Sorry, I do not have the information you need. Please contact the bank's helpline at 16234."
 """
+
 
 prompt = ChatPromptTemplate.from_template(template)
 
@@ -141,7 +142,7 @@ custom_css = """
 </style>
 """
 # Apply page name
-st.set_page_config(page_title="Bank Service Chatbot", page_icon="🏦", layout="centered")
+#st.set_page_config(page_title="Bank Service Chatbot", page_icon="🏦", layout="centered")
 
 # Apply custom CSS
 st.markdown(custom_css, unsafe_allow_html=True)
